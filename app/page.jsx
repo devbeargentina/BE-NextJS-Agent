@@ -1,17 +1,30 @@
-import Wrapper from "@/components/layout/Wrapper";
-// import MainHome from "../app/(others)/login";
-import ModalSigninSignup from "@/components/header/ModalSigninSignup";
+"use client";
 
-export const metadata = {
-  title: "Home-3 || BE - Argentina - Travel & Tour React NextJS Template",
-  description: "BE - Argentina - Travel & Tour React NextJS Template",
-};
+import Wrapper from "@/components/layout/Wrapper";
+import ModalSigninSignup from "@/components/header/ModalSigninSignup";
+import MainHome from "../app/(homes)/home_3/page";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
+import { getUser, logoutUser } from '@/features/hero/authSlice';
+import { metadata } from './metadata'; // Import the metadata
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const { user, isUserLoggedIn } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (!user.firstname) {
+      dispatch(getUser());
+    }
+  }, [dispatch]);
+
   return (
     <>
       <Wrapper>
-        <ModalSigninSignup />
+        {isUserLoggedIn ? (<MainHome />) : (<ModalSigninSignup />)}
       </Wrapper>
     </>
   );

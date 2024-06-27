@@ -14,10 +14,10 @@ import Footer3 from "@/components/footer/footer-3";
 import AddBanner from "@/components/home/home-3/AddBanner";
 import WhyChoose from "@/components/home/home-3/WhyChoose";
 
-export const metadata = {
-  title: "Home-3 || BE - Argentina - Travel & Tour React NextJS Template",
-  description: "BE - Argentina - Travel & Tour React NextJS Template",
-};
+// export const metadata = {
+//   title: "Home-3 || BE - Argentina - Travel & Tour React NextJS Template",
+//   description: "BE - Argentina - Travel & Tour React NextJS Template",
+// };
 
 const home_3 = () => {
   
