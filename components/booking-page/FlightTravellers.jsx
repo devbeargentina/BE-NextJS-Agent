@@ -46,8 +46,8 @@ const FlightTravellers = React.forwardRef((props, ref) => {
   // Expose the function via ref
   React.useImperativeHandle(ref, (e) => ({
     validateInput,
-    handleSubmit,
-    handleCartUpdate
+    handleSubmit//,
+    //handleCartUpdate
   }));
   // const FlightTravellers = (props) => {
     
