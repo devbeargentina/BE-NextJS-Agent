@@ -21,6 +21,18 @@ const initialStatePassenger = {
   passportNumber:"",
   passportExpiryDate: ""
 };
+const initialStateInfantPassenger = {
+  passengerTypeCode:"ADLT",
+  gender : "",
+  givenName : "",
+  surname : "",
+  birthDate: "",
+  hasStretcher: false,
+  nationality: "AR", // Added confirmPassword field
+  nationalIdNumber : "91",
+  passportNumber:"",
+  passportExpiryDate: "2025-12-31T09:52:16.621Z"
+};
 
 const intialStateContact = {  
   givenName:"",
@@ -43,7 +55,7 @@ const intialStateContact = {
     const selectedReturnFlight = filteredItems.length > 0 ? JSON.parse(filteredItems[0].product.returnFlightResponse) :{};
     const [adultData, setAdultData] = useState(Array(flightAvailRQ?.searchParam?.adult).fill(initialStatePassenger));
     const [childData, setChildData] = useState(Array(flightAvailRQ?.searchParam?.child).fill(initialStatePassenger));
-    const [infantData, setInfantData] = useState(Array(flightAvailRQ?.searchParam?.infant).fill(initialStatePassenger));
+    const [infantData, setInfantData] = useState(Array(flightAvailRQ?.searchParam?.infant).fill(initialStateInfantPassenger));
     const [contactData, setContactData] = useState(intialStateContact);
     const [validation, setValidation] = useState(Array(flightAvailRQ?.searchParam?.adult).fill({
       gender : true,
