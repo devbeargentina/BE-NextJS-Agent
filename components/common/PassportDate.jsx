@@ -1,0 +1,66 @@
+
+'use client'
+
+import { updateHotelCriteria, updateFlightAvailRQ } from "@/features/hero/searchCriteriaSlice";
+import React, { useState } from "react";
+import DatePicker, { DateObject } from "react-multi-date-picker";
+import { useDispatch, useSelector } from "react-redux";
+
+const PassportDate = ({cutOfDayss,stayInDayss}) => {
+  const { locationList, loading } = useSelector((state) => state.flight);
+  const { flightAvailRQ, hotelCriteria } = useSelector((state) => state.searchCriteria);
+  const dispatch = useDispatch(); // Hook to dispatch actions
+  // const [dates, setDates] = useState([
+  //   new DateObject({ year: 2023, month: 1, day: 22 }),
+  //   "December 09 2020",
+  //   1597994736000, //unix time in milliseconds (August 21 2020)
+  // ]);
+  const [dates, setDates] = useState([
+    new DateObject(hotelCriteria.startDate),//.add((cutOfDays), "day"),
+    new DateObject(hotelCriteria.endDate)//.add((cutOfDays+stayInDays), "day"),
+  ]);
+  // Dispatch action to update startDate and endDate in the Redux store
+  const updateSearchCriteria = (startDate, endDate) => {
+    dispatch(
+      updateHotelCriteria({
+        ...hotelCriteria,
+        startDate: new Date(startDate).toISOString(),
+        endDate: new Date(endDate).toISOString(),//.format("dd-mm-yyyy"),     // Modify the format as needed
+      })
+    );
+    dispatch(
+      updateFlightAvailRQ({
+          ...flightAvailRQ,
+          searchParam: {
+            ...flightAvailRQ.searchParam,
+            startDate: new Date(startDate).toISOString(),
+            endDate: new Date(endDate).toISOString(),
+          },
+      })
+    );
+  };
+
+  return (
+    <div className="text-15 text-light-1 ls-2 lh-16 custom_dual_datepicker">
+      <DatePicker
+        inputClass="custom_input-picker"
+        containerClassName="custom_container-picker"
+        value={dates}
+        onChange={(newDates) => {
+          setDates(newDates);
+          // Update the Redux store when the dates change
+          updateSearchCriteria(newDates[0], newDates[1]);
+        }}
+        minDate={new DateObject()}
+        maxDate={new DateObject().add(6, "month")}
+        numberOfMonths={1}
+        offsetY={10}
+        range
+        rangeHover
+        format="MMMM DD"
+      />
+    </div>
+  );
+};
+
+export default PassportDate;

@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/5f955eb3-29b4-4847-82aa-a95dc1ad7110/resourceGroups/Argentina/providers/Microsoft.Web/sites/argentinaweb",
+    "appService.deploySubpath": ".next"
+}

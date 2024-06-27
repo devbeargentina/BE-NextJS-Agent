@@ -1,0 +1,208 @@
+{
+    "@xmlns": "http://www.juniper.es/webservice/2007/",
+    "BookingRS": {
+        "@Url": "http://xml-uat.bookingengine.es",
+        "@TimeStamp": "2024-02-16T16:47:55.3461945+01:00",
+        "@IntCode": "zQKmaDFuXSIRxX1ZUA8gKOoKfPfm131uWTE7aCfn3cI=",
+        "Reservations": {
+            "Reservation": {
+                "@Locator": "YC5VLX",
+                "@Status": "PAG",
+                "@Language": "en",
+                "Holder": {
+                    "RelPax": {
+                        "@IdPax": "2"
+                    }
+                },
+                "Paxes": {
+                    "Pax": [
+                        {
+                            "@IdPax": "1",
+                            "Document": {
+                                "@Type": "DNI",
+                                "#text": "432432E"
+                            },
+                            "PhoneNumbers": {
+                                "PhoneNumber": "5465432345"
+                            },
+                            "Name": "nick",
+                            "Surname": "shah",
+                            "Age": "25",
+                            "Email": "prakash@test.com",
+                            "Address": "Address",
+                            "City": "Palma de Mallorca",
+                            "Country": "Spain",
+                            "PostalCode": "5555",
+                            "Nationality": "ES"
+                        },
+                        {
+                            "@IdPax": "2",
+                            "Document": {
+                                "@Type": "DNI",
+                                "#text": "432432E"
+                            },
+                            "PhoneNumbers": {
+                                "PhoneNumber": {
+                                    "@Type": "TFN",
+                                    "#text": "5465432345"
+                                }
+                            },
+                            "Name": "nick",
+                            "Surname": "shah",
+                            "Age": "25",
+                            "Email": "prakash@test.com",
+                            "Address": "Address",
+                            "City": "Palma de Mallorca",
+                            "Country": "Spain",
+                            "PostalCode": "5555",
+                            "Nationality": "ES"
+                        }
+                    ]
+                },
+                "AgenciesData": {
+                    "AgencyData": [
+                        {
+                            "ReferencedAgency": "false",
+                            "AgencyCode": "1759",
+                            "AgencyName": "Test XML SaviaGroup",
+                            "AgencyHandledBy": "XML AGENT",
+                            "AgencyEmail": "Bookingengineuser@gmail.com"
+                        },
+                        {
+                            "ReferencedAgency": "true",
+                            "AgencyCode": "0"
+                        }
+                    ]
+                },
+                "Items": {
+                    "HotelItem": {
+                        "@ItemId": "489515",
+                        "@Status": "OK",
+                        "@Start": "2024-03-11",
+                        "@End": "2024-03-12",
+                        "Prices": {
+                            "Price": {
+                                "@Type": "S",
+                                "@Currency": "EUR",
+                                "TotalFixAmounts": {
+                                    "@Gross": "50.45",
+                                    "@Nett": "50.45",
+                                    "Service": {
+                                        "@Amount": "46.41"
+                                    },
+                                    "ServiceTaxes": {
+                                        "@Included": "false",
+                                        "@Amount": "4.04"
+                                    }
+                                }
+                            }
+                        },
+                        "CancellationPolicy": {
+                            "@CurrencyCode": "EUR",
+                            "@Type": "S",
+                            "FirstDayCostCancellation": {
+                                "@Hour": "00:00",
+                                "#text": "2024-03-04"
+                            },
+                            "Description": "<div><strong>EN Value</strong></div><div>&nbsp;</div><div><span style=\"color: red;\">Can Accept</span> <span style=\"background-color: yellow;\">HTML Code</span>&nbsp;</div>",
+                            "PolicyRules": {
+                                "Rule": [
+                                    {
+                                        "@From": "0",
+                                        "@To": "3",
+                                        "@DateFrom": "2024-03-08",
+                                        "@DateFromHour": "00:00",
+                                        "@DateTo": "2024-03-12",
+                                        "@DateToHour": "00:00",
+                                        "@Type": "V",
+                                        "@FixedPrice": "0",
+                                        "@PercentPrice": "100",
+                                        "@Nights": "0",
+                                        "@ApplicationTypeNights": "Average"
+                                    },
+                                    {
+                                        "@From": "4",
+                                        "@To": "7",
+                                        "@DateFrom": "2024-03-04",
+                                        "@DateFromHour": "00:00",
+                                        "@DateTo": "2024-03-08",
+                                        "@DateToHour": "00:00",
+                                        "@Type": "V",
+                                        "@FixedPrice": "0",
+                                        "@PercentPrice": "25",
+                                        "@Nights": "0",
+                                        "@ApplicationTypeNights": "Average"
+                                    },
+                                    {
+                                        "@From": "8",
+                                        "@DateFrom": "2024-02-16",
+                                        "@DateFromHour": "00:00",
+                                        "@DateTo": "2024-03-04",
+                                        "@DateToHour": "00:00",
+                                        "@Type": "V",
+                                        "@FixedPrice": "0",
+                                        "@PercentPrice": "0",
+                                        "@Nights": "0",
+                                        "@ApplicationTypeNights": "Average"
+                                    }
+                                ]
+                            }
+                        },
+                        "Comments": {
+                            "Comment": {
+                                "@Type": "HOT",
+                                "#text": "* 13/06/2018 - 31/12/2030: Please note that on this field hotels have the possibility of supplying you with important information like:<br><br>- Additional taxes (like, for example, a city tax).<br>- Additional features (like, for example, a detailed explanation of a promotion)<br>- Additional warnings (like, for example, the pool being closed due to renovations)<br>- Additional information (like, for example, the emergency phone)<br><br>Among other examples.<br>"
+                            }
+                        },
+                        "HotelInfo": {
+                            "@Code": "JP046300",
+                            "@JPCode": "JP046300",
+                            "@JPDCode": "JPD000004",
+                            "@DestinationZone": "2",
+                            "Name": "Apartamentos Allsun Pil-lari Play-a",
+                            "HotelCategory": {
+                                "@Type": "3est",
+                                "#text": "3 Stars"
+                            },
+                            "Address": "Calle Marbella 24 "
+                        },
+                        "Board": {
+                            "@Type": "SA",
+                            "#text": "Room Only"
+                        },
+                        "HotelRooms": {
+                            "HotelRoom": {
+                                "@Source": "1",
+                                "@JRCode": "JR000051",
+                                "Name": "Single",
+                                "RoomCategory": {
+                                    "@Type": "4",
+                                    "#text": "Standard"
+                                },
+                                "RelPaxes": {
+                                    "RelPax": {
+                                        "@IdPax": "1"
+                                    }
+                                }
+                            }
+                        },
+                        "AdditionalElements": {
+                            "HotelOffers": {
+                                "HotelOffer": {
+                                    "@Code": "323059",
+                                    "@Type": "M",
+                                    "@OnlyResidents": "false",
+                                    "Name": "Test Offer (default)",
+                                    "Description": "Additional conditions of the offer may be specified here"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Payment": {
+                    "@Type": "C"
+                }
+            }
+        }
+    }
+}
