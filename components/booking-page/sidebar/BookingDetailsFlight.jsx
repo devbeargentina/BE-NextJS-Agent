@@ -8,6 +8,7 @@ const BookingDetailsFlight = (props) => {
   ////console.log(selectedFlight);
   const selectedReturnFlight = (props.returnFlightResponse && props.returnFlightResponse !== "string") ? JSON.parse(props.returnFlightResponse) :{};
   const flightExtraCharges = (props.extraServiceResponse && props.extraServiceResponse !== "" && props.extraServiceResponse !== "string") ? JSON.parse(props.extraServiceResponse) :{};
+  const extraProcessingFeeAmount = props?.extraProcessingFeeAmount ?? 0;
   
   const convertToCustomFormatS = (DateTime) => {
     var converted = new Date(Date.UTC(
@@ -334,6 +335,26 @@ const BookingDetailsFlight = (props) => {
                           </div>
                         </div>
                         </div>
+                </div>
+    </>
+    // End px-30
+  ):(<></>)}
+  
+{extraProcessingFeeAmount > 0 ? (
+    <>
+                <div className="py-10 px-20 border-top-light">
+                  <div className="row y-gap-10 justify-between">
+                      <div className="col-auto text-left md:text-left">
+                        <div className="text-14 mt-15 md:mt-5"><i class="icon-group"></i>
+                          {`Service Fee`}
+                        </div>
+                      </div>
+                      <div className="col-auto text-right md:text-left">
+                        <div className="text-14 mt-15 md:mt-5">
+                        {"USD " + (extraProcessingFeeAmount)}
+                        </div>
+                      </div>
+                    </div>
                 </div>
     </>
     // End px-30

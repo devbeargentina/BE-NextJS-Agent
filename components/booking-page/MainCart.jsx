@@ -78,7 +78,7 @@ const intialStateContact = {
     
     dispatch(deleteSessionCartItem({id})).then((action) => {
       // Check if cart is empty, then redirect
-      debugger;
+      
       if (!action.payload.items || action.payload.items.length === 0) {
         router.push('/'); // Assuming you have access to router here
       } else {
@@ -90,7 +90,7 @@ const intialStateContact = {
     //   addToCart("adasdasd","asdsadsad");
     // }, []);
     useEffect(() => {
-      debugger;
+      
         const sessionCartId = localStorage.getItem('sessioncart');
         if (sessionCartId) {
                 dispatch(getCartById({ sessionCartId, router })).then((action) => {
@@ -188,7 +188,6 @@ const intialStateContact = {
     };
 
     const handleSubmit = async (e) => {
-      debugger
       const validationResultsFlight = flightRef.current.map(ref => ref.validateInput());
       const validationResultsHotel = hotelRef.current.map(ref => ref.validateInput());
       const validationResultsContact = validateContactInput();
@@ -215,44 +214,44 @@ const intialStateContact = {
         // const flightResults = await Promise.all(flightPromises);
         // // Check if all flights handled successfully (or add your own condition)
         // if (flightResults.every(result => result !== false)) {
-        //   dispatch(Payment({ filterParam: {
-        //       Amount: cartItems[0].totalCost,
-        //       OrderId: cartItems[0].id,
-        //       shopperEmailAddress: "nickshah@test.com"
-        //   }, router, undefined })).then((action) => {
-        //     if (action.payload.result.redirectURL) {
-        //       window.location = action.payload.result.redirectURL + finalString;
-        //     }
-        //   });
+          dispatch(Payment({ filterParam: {
+              Amount: cartItems[0].totalCost,
+              OrderId: cartItems[0].id,
+              shopperEmailAddress: "nickshah@test.com"
+          }, router, undefined })).then((action) => {
+            if (action.payload.result.redirectURL) {
+              window.location = action.payload.result.redirectURL + finalString;
+            }
+          });
         // } else {
         //   console.error('One or more flights failed to handleSubmit');
         //   // Handle the case where some promises failed if needed
         // }
 
-        if (!flightFalse && validationResultsContact) {
-          // For flights
-          flightPromises = flightRef.current.map(ref => 
-            ref.handleSubmit().catch(error => {
-              console.error('Error in flight handleSubmit:', error);
-              return false;
-            })
-          );
-        }
+        // if (!flightFalse && validationResultsContact) {
+        //   // For flights
+        //   flightPromises = flightRef.current.map(ref => 
+        //     ref.handleSubmit().catch(error => {
+        //       console.error('Error in flight handleSubmit:', error);
+        //       return false;
+        //     })
+        //   );
+        // }
     
-        if (!hotelFalse && validationResultsContact) {
-          // For hotels
-          hotelPromises = hotelRef.current.map(ref => 
-            ref.handleSubmit().catch(error => {
-              console.error('Error in hotel handleSubmit:', error);
-              return false;
-            })
-          );
-        }
+        // if (!hotelFalse && validationResultsContact) {
+        //   // For hotels
+        //   hotelPromises = hotelRef.current.map(ref => 
+        //     ref.handleSubmit().catch(error => {
+        //       console.error('Error in hotel handleSubmit:', error);
+        //       return false;
+        //     })
+        //   );
+        // }
     
         // const results = await Promise.all([...flightPromises, ...hotelPromises]);
         // const allSuccessful = results.every(result => result !== false);
-        const allPromises = [...flightPromises, ...hotelPromises];
-        const results = await Promise.all(allPromises);
+        // const allPromises = [...flightPromises, ...hotelPromises];
+        // const results = await Promise.all(allPromises);
     
         // Check if all promises are resolved successfully
         // if (results.every(result => result !== false)) {

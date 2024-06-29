@@ -1,5 +1,6 @@
 import DateSearch from "../common/DateSearch";
-import GuestSearch from "../common/GuestSearch";
+//import GuestSearch from "../common/GuestSearch";
+import GuestSearch from "@/components/hero/hero-3/GuestSearch";
 import LocationSearch from "../common/LocationSearch";
 import { useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";

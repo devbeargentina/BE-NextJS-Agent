@@ -39,6 +39,7 @@ const AvailableRooms = ({ hotel }) => {
     nights: (Math.ceil(differenceInDays)),
     extraServiceResponse: "string",
     extraServiceTotalAmount: 0,
+    extraProcessingFeeAmount: 10,
     paxInformation: "string"
 }}, router, undefined })).then((action) => {
   // Check if cart is empty, then redirect

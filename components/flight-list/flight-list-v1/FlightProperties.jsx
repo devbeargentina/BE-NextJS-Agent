@@ -6,6 +6,7 @@ import { flightExtraCharges, updateCreateBookingRQ, updateFlightCart, updateSele
 import { createCart, getCartById } from "@/features/hero/cartSlice";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import PriceCalculation from "@/components/common/PriceCalculation";
 
 const FlightProperties = () => {
   const [fareItemindex, setFareItemindex] = useState();
@@ -15,6 +16,7 @@ const FlightProperties = () => {
   
   const { flightAvailRQ } = useSelector((state) => state.searchCriteria);
   const { flightList,filterParam,loading,selectedFlight, extraCHARGES } = useSelector((state) => state.flight);
+  const { flightMargineType,flightMargineValue } = useSelector((state) => state.user);
   // 
   //console.log(JSON.stringify(flightList));
   const updateCart = (rqCreateBooking, fareItemindex, index)=>{
@@ -88,6 +90,7 @@ dispatch(updateCreateBookingRQ(rqCreateBooking));
     nights: 0,
     extraServiceResponse: JSON.stringify(action.payload.result),
     extraServiceTotalAmount:(action.payload.result && action.payload?.result?.totalAmountValue > 0) ? action.payload?.result?.totalAmountValue : 0,
+    extraProcessingFeeAmount: 10,
     paxInformation: JSON.stringify()
   }
 }, router, undefined })).then((action) => {
@@ -259,6 +262,7 @@ if (sessionCartId) {
                   <div className="pl-30 border-left-light h-full md:d-none" />
                   <div className="xl:d-flex xl:justify-between">
                     <div className="text-right md:text-left mb-10">
+                      <PriceCalculation basePrice={item.indicativePrice} marginetype={flightMargineType} marginevalue={flightMargineValue} />
                       <div className="text-18 lh-16 fw-500">{`USD ${item.indicativePrice}`}</div>
                       <div className="text-15 lh-16 text-light-1">{`${item.fareComponentList.length} options`}</div>
                     </div>
@@ -371,6 +375,7 @@ if (sessionCartId) {
                         className="button -dark-1 px-30 h-40 bg-blue-1 text-white float-end"
                         onClick={()=> updateCart(fareItem.rqCreateBooking, fareItemindex, index)}
                       >
+                      <PriceCalculation basePrice={fareItem.indicativeBaseFare} marginetype={flightMargineType} marginevalue={flightMargineValue} />
                         {"USD " + fareItem.indicativeBaseFare} {loading ? <i class="spinner-border spinner-border-sm"></i>:<div className="icon-arrow-top-right ml-15" />}
                       </button>
                     </div>):(<>
@@ -389,6 +394,7 @@ if (sessionCartId) {
                       className="button -dark-1 px-30 h-40 bg-blue-1 text-white float-end"
                       onClick={()=> updateCart(fareItem.rqCreateBooking, fareItemindex, index)}
                     >
+                    <PriceCalculation basePrice={fareItem.indicativeBaseFare} marginetype={flightMargineType} marginevalue={flightMargineValue} />
                       {"USD " + fareItem.indicativeBaseFare} <div className="icon-arrow-top-right ml-15" />
                     </button>
                   </div></>)}

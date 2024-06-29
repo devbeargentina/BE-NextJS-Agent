@@ -18,18 +18,6 @@ const initialStatePassenger = {
   passportNumber:"",
   passportExpiryDate: ""
 };
-const initialStateInfantPassenger = {
-  passengerTypeCode:"ADLT",
-  gender : "",
-  givenName : "",
-  surname : "",
-  birthDate: "",
-  hasStretcher: false,
-  nationality: "AR", // Added confirmPassword field
-  nationalIdNumber : "91",
-  passportNumber:"",
-  passportExpiryDate: "2025-12-31T09:52:16.621Z"
-};
 
 const intialStateContact = {  
   givenName:"",
@@ -51,14 +39,14 @@ const FlightTravellers = React.forwardRef((props, ref) => {
   }));
   // const FlightTravellers = (props) => {
     
-   debugger;
+   
    const { cartItems, extraCHARGES } = useSelector((state) => state.cart);
     const  flightAvailRQ  = props.request ? JSON.parse(props.request) :{};
     const selectedFlight = props.response ? JSON.parse(props.response) :{};
     const selectedReturnFlight = (props.returnFlightResponse && props.returnFlightResponse !== "string") ? JSON.parse(props.returnFlightResponse) :{};
     const [adultData, setAdultData] = useState(Array(flightAvailRQ?.searchParam?.adult).fill(initialStatePassenger));
     const [childData, setChildData] = useState(Array(flightAvailRQ?.searchParam?.child).fill(initialStatePassenger));
-    const [infantData, setInfantData] = useState(Array(flightAvailRQ?.searchParam?.infant).fill(initialStateInfantPassenger));
+    const [infantData, setInfantData] = useState(Array(flightAvailRQ?.searchParam?.infant).fill(initialStatePassenger));
     const [contactData, setContactData] = useState(intialStateContact);
     const [validation, setValidation] = useState(Array(flightAvailRQ?.searchParam?.adult).fill({
       gender : true,
@@ -136,7 +124,7 @@ const FlightTravellers = React.forwardRef((props, ref) => {
       return Object.values(newValidation).every((isValid) => isValid);
     };
     const validateInput = () => {
-      debugger;
+      
       const sixMonthsFromNow = new DateObject(flightAvailRQ.searchParam.startDate).add(6, 'month');
     
       const newValidation = adultData.map((passenger) => {
@@ -163,7 +151,7 @@ const FlightTravellers = React.forwardRef((props, ref) => {
     
     
     // const handleCartUpdate = async (e) => {
-    //   debugger;
+    //   
     //     try {          
     //         dispatch(updateSessionCart({ rqAddSessionCart : {
     //           id: cartItems.id,
@@ -180,7 +168,7 @@ const FlightTravellers = React.forwardRef((props, ref) => {
     // };
     
     const handleSubmit = async (e) => {
-      debugger;
+      
         try {
           if(selectedReturnFlight?.fareComponentList){            
           await Promise.all(adultData.map((passenger) =>            

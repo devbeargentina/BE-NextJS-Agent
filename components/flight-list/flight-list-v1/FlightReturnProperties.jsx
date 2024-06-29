@@ -5,6 +5,7 @@ import { updateReturnCreateBookingRQ, updateSelectedReturnFlight } from "@/featu
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createCart } from "@/features/hero/cartSlice";
+import PriceCalculation from "@/components/common/PriceCalculation";
 
 const FlightReturnProperties = (props) => {
   // {loading ? <Skeleton /> : ""}
@@ -15,6 +16,7 @@ const FlightReturnProperties = (props) => {
   
   const { flightAvailRQ } = useSelector((state) => state.searchCriteria);
   const { returnFlightList,filterParam,loading,selectedReturnFlight } = useSelector((state) => state.flight);
+  const { flightMargineType,flightMargineValue } = useSelector((state) => state.user);
   const updateCart = (rqCreateBooking, fareItemindex, index)=>{
     setFlightItemIndex(index)
     setFareItemindex(fareItemindex);
@@ -177,6 +179,7 @@ dispatch(updateReturnCreateBookingRQ(rqCreateBooking));
                   <div className="pl-30 border-left-light h-full md:d-none" />
                   <div className="xl:d-flex xl:justify-between">
                   <div className="text-right md:text-left mb-10">
+                      <PriceCalculation basePrice={item.indicativePrice} marginetype={flightMargineType} marginevalue={flightMargineValue} />
                     <div className="text-18 lh-16 fw-500">{`USD ${item.indicativePrice}`}</div>
                     <div className="text-15 lh-16 text-light-1">{`${item.fareComponentList.length} options`}</div>
                   </div>
@@ -289,6 +292,7 @@ dispatch(updateReturnCreateBookingRQ(rqCreateBooking));
                       className="button -dark-1 px-30 h-40 bg-blue-1 text-white float-end"
                       onClick={()=> updateCart(fareItem.rqCreateBooking, fareItemindex, index)}
                     >
+                    <PriceCalculation basePrice={fareItem.indicativeBaseFare} marginetype={flightMargineType} marginevalue={flightMargineValue} />
                       {"USD " +fareItem.indicativeBaseFare} {loading ? <i class="spinner-border spinner-border-sm"></i>:<div className="icon-arrow-top-right ml-15" />}
                     </button>
                   </div>

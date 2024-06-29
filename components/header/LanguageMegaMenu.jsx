@@ -30,7 +30,7 @@ const LanguageMegaMenu = ({ textClass }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(language);
 
   const handleItemClick = (item) => {
-    debugger;
+    
     localStorage.setItem("lang", item.lang)
     setSelectedCurrency(item);
     setSelectedLanguage(item.lang);

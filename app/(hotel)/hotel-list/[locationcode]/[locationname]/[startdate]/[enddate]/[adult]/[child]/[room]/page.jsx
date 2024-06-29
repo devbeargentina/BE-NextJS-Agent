@@ -40,7 +40,8 @@ const index = ({params}) => {
           {
             age: 25
           }
-        ]
+        ],
+        rooms:hotelCriteria.rooms
       },
       isApplySearchParam: true,
       filterParam: {

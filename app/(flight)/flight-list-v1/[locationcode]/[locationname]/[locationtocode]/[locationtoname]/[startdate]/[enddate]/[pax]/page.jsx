@@ -19,6 +19,7 @@ import { updateFlightAvailRQ } from "@/features/hero/searchCriteriaSlice";
 import Link from "next/link";
 import { createCart, getCartById } from "@/features/hero/cartSlice";
 import { act } from "react";
+import PriceCalculation from "@/components/common/PriceCalculation";
 
 // export const metadata = {
 //   title: "Flight List v1 || BE - Argentina - Travel & Tour React NextJS Template",
@@ -31,6 +32,7 @@ const index = ({ params }) => {
   const { flightAvailRQ } = useSelector((state) => state.searchCriteria);
   const { flightList, returnFlightList, filterParam, returnFilterParam,loading, totalFlights, totalReturnFlights, totalPages, totalRetutrnPages,selectedFlight, selectedReturnFlight, createBookingRQ, returnCreateBookingRQ, extraCHARGES } = useSelector((state) => state.flight);
   const { loading: cartLoading } = useSelector((state) => state.cart);
+  const { flightMargineType,flightMargineValue } = useSelector((state) => state.user);
   const router = useRouter();
   const { destinationLocationCode,
   destinationLocationName,
@@ -211,10 +213,11 @@ const index = ({ params }) => {
     nights: 0,
     extraServiceResponse: JSON.stringify(action.payload.result),
     extraServiceTotalAmount:(action.payload.result && action.payload?.result?.totalAmountValue > 0) ? action.payload?.result?.totalAmountValue : 0,
+    extraProcessingFeeAmount: 10,
     paxInformation: JSON.stringify()
   }
 }, router, undefined })).then((action) => {
-  debugger;
+  
   // Check if cart is empty, then redirect
   if (!action.payload.items || action.payload.items.length === 0) {
     router.push('/'); // Assuming you have access to router here
@@ -348,6 +351,7 @@ if (sessionCartId) {
                   <div className="pl-30 border-left-light h-full md:d-none" />
                   <div>
                     <div className="text-right md:text-left mb-10">
+                      <PriceCalculation basePrice={selectedFlight.fareComponentList[0].indicativeBaseFare} marginetype={flightMargineType} marginevalue={flightMargineValue} />
                       <div className="text-18 lh-16 fw-500">{`USD ${selectedFlight.fareComponentList[0].indicativeBaseFare}`}</div>
                       {/* <div className="text-15 lh-16 text-light-1">{`${selectedFlight.fareComponentList.length} deals`}</div> */}
                     </div>
@@ -451,6 +455,7 @@ if (sessionCartId) {
                   <div className="pl-30 border-left-light h-full md:d-none" />
                   <div>
                     <div className="text-right md:text-left mb-10">
+                      <PriceCalculation basePrice={selectedReturnFlight.fareComponentList[0].indicativeBaseFare} marginetype={flightMargineType} marginevalue={flightMargineValue} />
                       <div className="text-18 lh-16 fw-500">{`USD ${selectedReturnFlight.fareComponentList[0].indicativeBaseFare}`}</div>
                       {/* <div className="text-15 lh-16 text-light-1">{`${selectedReturnFlight.fareComponentList.length} deals`}</div> */}
                     </div>

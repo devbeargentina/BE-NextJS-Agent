@@ -15,7 +15,13 @@ const initialState = {
       endDate:new Date(new DateObject().add(10,"days")).toISOString(),
       adult: 2,
       child: 0,
-      room: 1
+      room: 1,
+      rooms:[{
+        adult: 2,
+        child: 0,
+        room: 1
+        },
+        ]
     },    
   flightAvailRQ: {
     searchParam: {
@@ -72,7 +78,7 @@ export const searchCriteriaSlice = createSlice({
       };
     },
     updateLang: (state, action) => {
-      debugger;
+      
       // Merge the payload with the existing FlightAvailRQ
       state.lang = action.payload;
     },

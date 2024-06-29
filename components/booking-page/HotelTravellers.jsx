@@ -23,6 +23,7 @@ const HotelTravellers = React.forwardRef((props, ref) => {
     handleSubmit
   }));
     const { loading,checkavailbookingrulesRS } = useSelector((state) => state.hotel);
+    const { hotelCriteria } = useSelector((state) => state.searchCriteria) || {};
     console.log(checkavailbookingrulesRS);
     const request = JSON.parse(props?.request);
     const response = JSON.parse(props?.response);
@@ -47,7 +48,8 @@ const HotelTravellers = React.forwardRef((props, ref) => {
         searchParam: {
           startDate: new Date(decodeURIComponent(request?.startDate)).toISOString() ||  new Date(new DateObject()).toISOString(),
           endDate: new Date(decodeURIComponent(request?.endDate)).toISOString() ||  new Date(new DateObject()).toISOString(),
-          pax: pax
+          pax: pax,
+          rooms:hotelCriteria.rooms
         },
         selectedRoomTypeCode:response?.selectedRoomTypeCode,
         HotelCode:response?.selectedHotel?.jpCode
@@ -99,7 +101,8 @@ const HotelTravellers = React.forwardRef((props, ref) => {
                       searchParam: {
                         startDate: new Date(decodeURIComponent(request?.startDate)).toISOString() ||  new Date(new DateObject()).toISOString(),
                         endDate: new Date(decodeURIComponent(request?.endDate)).toISOString() ||  new Date(new DateObject()).toISOString(),
-                        pax: pax
+                        pax: pax,
+                        rooms:hotelCriteria.rooms
                       },
                       BookingCode:checkavailbookingrulesRS?.bookingCode,
                       selectedRoomTypeCode:checkavailbookingrulesRS?.hotelOptions?.hotelOption[0]?.ratePlanCode,

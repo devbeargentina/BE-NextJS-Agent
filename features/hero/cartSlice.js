@@ -177,7 +177,7 @@ const cartSlice = createSlice({
     });
     builder.addCase(createCart.fulfilled, (state, action) => {   
       state.loading = false;
-     debugger;
+     
       state.cartItems = action.payload.items;
       state.totalCost = action.payload.totalCost;
       //console.log(JSON.stringify(rqAddSessionCart));

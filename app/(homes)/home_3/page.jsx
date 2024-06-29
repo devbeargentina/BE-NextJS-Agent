@@ -31,7 +31,7 @@ const home_3 = () => {
       <Hero3 />
       {/* End Hero 3 */}
 
-      {/* <section className="layout-pt-lg layout-pb-md">
+      <section className="layout-pt-lg layout-pb-md">
         <div className="container">
           <div className="row justify-center text-center">
             <div className="col-auto">
@@ -43,13 +43,16 @@ const home_3 = () => {
               </div>
             </div>
           </div>
+          {/* End .row */}
           <div className="row y-gap-20 pt-40">
             <AddBanner />
           </div>
+          {/* End .row */}
         </div>
-      </section> */}
+        {/* End container */}
+      </section>
       {/* End AddBanner Section */}
-{/* 
+
       <section className="layout-pt-md layout-pb-md">
         <div className="container">
           <div className="row justify-center text-center">
@@ -62,13 +65,18 @@ const home_3 = () => {
               </div>
             </div>
           </div>
+          {/* End .row */}
+
           <div className="row y-gap-40 justify-between pt-50">
             <WhyChoose />
           </div>
+          {/* End row */}
         </div>
-      </section> */}
+        {/* End .container */}
+      </section>
+      {/* End Why choose Section */}
 
-      {/* <section className="layout-pt-md layout-pb-md">
+      <section className="layout-pt-md layout-pb-md">
         <div className="container">
           <div className="row justify-center text-center">
             <div className="col-auto">
@@ -80,15 +88,18 @@ const home_3 = () => {
               </div>
             </div>
           </div>
+          {/* End .row */}
 
           <div className="row y-gap-40 justify-between pt-40 sm:pt-20">
             <TopDestinations />
           </div>
+          {/* End .row */}
         </div>
-      </section> */}
+        {/* End .container */}
+      </section>
       {/* End Top Destinations Section */}
 
-      {/* <section className="layout-pt-md layout-pb-md">
+      <section className="layout-pt-md layout-pb-md">
         <div className="container">
           <div className="row y-gap-20 justify-between items-end">
             <div className="col-auto">
@@ -99,15 +110,26 @@ const home_3 = () => {
                 </p>
               </div>
             </div>
+            {/* End .col */}
+
             <div className="col-auto">
+              {/* <Link
+                href="#"
+                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+              >
+                More <div className="icon-arrow-top-right ml-15" />
+              </Link> */}
             </div>
           </div>
+          {/* End .row */}
+
           <div className="row y-gap-30 pt-40 sm:pt-20 item_gap-x30">
             <Hotels />
           </div>
+          {/* End relative */}
         </div>
-      </section> */}
-{/* 
+      </section>
+
       <section className="layout-pt-md layout-pb-lg">
         <div className="container">
           <div className="row y-gap-20 justify-between items-end">
@@ -119,16 +141,27 @@ const home_3 = () => {
                 </p>
               </div>
             </div>
+            {/* End .col */}
 
             <div className="col-auto">
+              {/* <Link
+                href="#"
+                className="button -md -blue-1 bg-blue-1-05 text-blue-1"
+              >
+                More <div className="icon-arrow-top-right ml-15" />
+              </Link> */}
             </div>
+            {/* End .col */}
           </div>
+          {/* End .row */}
 
           <div className="row y-gap-30 pt-40 sm:pt-20">
             <Flights />
           </div>
+          {/* End .row */}
         </div>
-      </section> */}
+        {/* End .container */}
+      </section>
       {/* Popular Routes Sections */}
 
       <Footer3 />

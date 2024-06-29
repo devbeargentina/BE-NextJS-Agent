@@ -52,7 +52,7 @@ const ModalSigninSignup = ({ currentPath }) => {
     <>
       <div className={`signinPopup js-langMenu ${click ? "" : "is-hidden"}`}>
         <div className="currencyMenu__bg" onClick={handleCurrency}></div>
-        <div className="signinPopup__content bg-white rounded-4  py-30">
+        <div className="signinPopup__content bg-white rounded-4">
           {/* <div className="d-flex items-center justify-between px-30 py-20 sm:px-15 border-bottom-light">
             <div className="text-20 fw-500 lh-15">Select your language</div>
             <button className="pointer" onClick={handleCurrency}>
@@ -64,7 +64,7 @@ const ModalSigninSignup = ({ currentPath }) => {
           <LoginForm />
                 {/* End .Login */}
 
-                {/* <div className="row y-gap-20 pt-30">
+                <div className="row y-gap-20 pt-30">
                   <div className="col-12">
                     <div className="text-center">or sign in with</div>
                     
@@ -81,7 +81,7 @@ const ModalSigninSignup = ({ currentPath }) => {
                       and Privacy Statement.
                     </div>
                   </div>
-                </div> */}
+                </div>
                 
           </div>
         </div>
